@@ -1,0 +1,31 @@
+<h1>Control de ingreso</h1>
+
+<%= form_for [@organization, @organization.entry_controls.build] do |f| %>
+	<p>
+		Cooperativa: <%= @organization.name %>
+	</p>
+
+	<p>
+		<%= f.label :entryDate, "Fecha de ingreso" %> 
+		<%= f.date_field :entryDate, value: Date.today, :readonly => true %>
+	</p>
+
+	<p>
+		<%= f.label :exchangeRate, "Tasa de cambio(USD/LPS)" %>
+		<%= f.number_field :exchangeRate, value:23.80, :readonly => true %>
+	</p>
+	
+	<p>
+		<%= f.label :receivedBy, "Recibido por" %>
+		<%= f.text_field :receivedBy %>
+	</p>
+
+	<p>
+		<%= f.label :deliveredBy, "Entregado por" %>
+		<%= f.text_field :deliveredBy %>
+	</p>
+
+	<p>
+		<%= f.submit "Aceptar", class:"btn btn-default btn-lg" %>
+	</p>
+<% end %>
